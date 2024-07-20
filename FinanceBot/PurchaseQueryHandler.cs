@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FinanceBot
+﻿namespace FinanceBot
 {
     public class PurchaseQueryHandler
     {
@@ -40,6 +35,4 @@ namespace FinanceBot
             return Task.FromResult(query.Sum(p => p.Price));
         }
     }
-
-
 }
