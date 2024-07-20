@@ -32,38 +32,35 @@ FinanceBot is a Telegram bot designed to help users manage and track their expen
    cd FinanceBot
    Set up the database:
 
-Update the connection string in BotDbContext.cs to match your database configuration.
+2. Update the connection string in BotDbContext.cs to match your database configuration.
 Apply the migrations to create the database schema:
-bash
-dotnet ef database update
-Run the bot:
+   ```bash
+   dotnet ef database update
+3. Run the bot:
+   ```bash
+   dotnet run
 
-bash
-dotnet run
-Usage
-Start the bot by running the application.
-Interact with the bot through Telegram:
-Register by sending /start to the bot.
-Add a purchase by sending a message in the format:
-bash
-/add PurchaseName 123.45 Category Description
+##Usage
+1. Start the bot by running the application.
+2. Interact with the bot through Telegram:
+   Register by sending /start to the bot.
+   Add a purchase by sending a message in the format:
+   ```bash
+   /add PurchaseName 123.45 Category Description
 Retrieve purchases by sending a message in the format:
-yaml
-/purchases 2024-01-01 2024-01-31
+   ```yaml
+   /purchases 2024-01-01 2024-01-31
+```
 Retrieve total spending by sending a message in the format:
-yaml
-/total 2024-01-01 2024-01-31
+   ```yaml
+   /total 2024-01-01 2024-01-31
+   ```
 Example Commands
-/add Coffee 4.50 Food Morning coffee
-/purchases 2024-01-01 2024-01-31
-/total 2024-01-01 2024-01-31
-Contributing
-Contributions are welcome! Please follow these steps:
+```
+   /add Coffee 4.50 Food Morning coffee
+   /purchases 2024-01-01 2024-01-31
+   /total 2024-01-01 2024-01-31
+```
 
-Fork the repository.
-Create a new branch (git checkout -b feature/YourFeature).
-Commit your changes (git commit -am 'Add a new feature').
-Push to the branch (git push origin feature/YourFeature).
-Open a pull request.
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
