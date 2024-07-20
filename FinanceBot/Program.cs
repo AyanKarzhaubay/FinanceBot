@@ -13,7 +13,7 @@ class Program
     private static MessageHandler messageHandler;
     static void Main()
     {
-        string token = "5910511903:AAEb-KNwMYqJb-5AXPbPbC0gB_GcSjX0EBE";
+        string token = "Bot token here";
         Console.Title = "TelegramBot";
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
