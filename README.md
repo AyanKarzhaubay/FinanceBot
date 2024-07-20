@@ -56,11 +56,11 @@ Retrieve total spending by sending a message in the format:
    /total 2024-01-01 2024-01-31
    ```
 Example Commands
-```
+   ```yaml
    /add Coffee 4.50 Food Morning coffee
    /purchases 2024-01-01 2024-01-31
    /total 2024-01-01 2024-01-31
-```
+   ```
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
