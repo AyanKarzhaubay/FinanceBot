@@ -1,89 +1,69 @@
 # FinanceBot
-Description
-FinanceBot is a Telegram bot for personal finance management. The bot allows users to register, add and view their purchases, and get statistics on their expenses.
+FinanceBot is a Telegram bot designed to help users manage and track their expenses. It allows users to record purchases, categorize expenses, and retrieve information on their spending habits.
 
-Requirements
-.NET 8.0
-SQL Server
-Visual Studio 2022 or later
-Installation
-Step 1: Clone the repository
+## Features
+
+- Register and manage users via Telegram.
+- Record purchases with details such as name, price, category, and description.
+- Retrieve a list of purchases and calculate total spending within a specific date range.
+- Optionally filter purchases by category.
+
+## Technologies Used
+
+- C#
+- .NET
+- Entity Framework Core
+- MS SQL Server
+- Telegram.Bot library
+
+## Getting Started
+
+### Prerequisites
+
+- [.NET SDK](https://dotnet.microsoft.com/download) installed on your machine.
+- [MS SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) or a similar database setup.
+- A Telegram bot token. You can obtain this by creating a bot via the [BotFather](https://core.telegram.org/bots#6-botfather).
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/FinanceBot.git
+   cd FinanceBot
+   Set up the database:
+
+Update the connection string in BotDbContext.cs to match your database configuration.
+Apply the migrations to create the database schema:
 bash
-git clone https://github.com/yourusername/FinanceBot.git
-cd FinanceBot
-Step 2: Configure the database
-Update the connection string in the BotDbContext.cs file if necessary:
-
-csharp
-protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-{
-    optionsBuilder.UseSqlServer(@"Data Source=YOUR_SERVER_NAME;Initial Catalog=FinanceBotDB;Integrated Security=True;TrustServerCertificate=True");
-}
-Step 3: Apply migrations
-Open the Package Manager Console and run the following commands:
-
-powershell
-Add-Migration InitialCreate
-Update-Database
-These commands will create and apply the necessary migrations, setting up the database tables.
-
-Running the Application
-Step 1: Set up the Telegram token
-Open the Program.cs file and insert your Telegram token:
-
-csharp
-string token = "YOUR_TELEGRAM_BOT_TOKEN";
-Step 2: Run the application
-Run the application through Visual Studio or the command line:
+dotnet ef database update
+Run the bot:
 
 bash
 dotnet run
-You should see the message Bot is running..., indicating that the bot has started successfully.
-
 Usage
-Register a user
-Send the /start command in the chat with the bot to register. The bot will automatically save your Telegram ID and registration date.
-
-Add a purchase
-Send a message in the format:
-
+Start the bot by running the application.
+Interact with the bot through Telegram:
+Register by sending /start to the bot.
+Add a purchase by sending a message in the format:
 bash
-/addpurchase {name} {price} {category} {description}
-Example:
-
-bash
-/addpurchase Coffee 250.50 Food "Morning coffee"
-View purchases
-Send a message in the format:
-
-sql
-/getpurchases {start date} {end date} {category (optional)}
-Example:
-
+/add PurchaseName 123.45 Category Description
+Retrieve purchases by sending a message in the format:
 yaml
-/getpurchases 2023-07-01 2023-07-20
-/getpurchases 2023-07-01 2023-07-20 Food
-Get total spent
-Send a message in the format:
-
-sql
-/totalspent {start date} {end date} {category (optional)}
-Example:
-
+/purchases 2024-01-01 2024-01-31
+Retrieve total spending by sending a message in the format:
 yaml
-/totalspent 2023-07-01 2023-07-20
-/totalspent 2023-07-01 2023-07-20 Food
-Logging
-The application uses Microsoft.Extensions.Logging for logging. Logs are written to the console to help track the bot's actions and possible errors.
+/total 2024-01-01 2024-01-31
+Example Commands
+/add Coffee 4.50 Food Morning coffee
+/purchases 2024-01-01 2024-01-31
+/total 2024-01-01 2024-01-31
+Contributing
+Contributions are welcome! Please follow these steps:
 
-Making Changes
-If you want to make changes to the code, be sure to create and apply new migrations if you change the database structure:
-
-powershell
-Add-Migration YourMigrationName
-Update-Database
-Support
-If you encounter issues or have questions, please create an issue on GitHub.
-
+Fork the repository.
+Create a new branch (git checkout -b feature/YourFeature).
+Commit your changes (git commit -am 'Add a new feature').
+Push to the branch (git push origin feature/YourFeature).
+Open a pull request.
 License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
