@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-namespace FinanceBot
+﻿namespace FinanceBot
 {
     public class Purchase
     {
