@@ -117,8 +117,11 @@ namespace FinanceBot
             var user = _dbContext.Users.FirstOrDefault(u => u.TelegramId == telegramId);
 
             string errorMessage = null;
-            if(user is null)
-                await _botClient.SendTextMessageAsync(message.Chat, "User not found!");
+            if (user is null)
+            {
+                await _botClient.SendTextMessageAsync(message.Chat, "User not found. Please use /start to register.");
+                return;
+            }
             if (user != null && TryParsePurchase(message.Text, user.Id, out errorMessage))
             {
                 await _botClient.SendTextMessageAsync(message.Chat, "Purchase logged successfully!");
